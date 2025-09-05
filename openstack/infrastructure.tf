@@ -60,7 +60,7 @@ resource "openstack_compute_instance_v2" "instances" {
   image_id = each.value.disk_size > data.openstack_compute_flavor_v2.flavors[each.value.type].disk ? null : data.openstack_images_image_v2.image[each.value.image].id
 
   flavor_name  = each.value.type
-  user_data    = user_data = module.configuration.user_data[each.key]
+  user_data    = module.configuration.user_data[each.key]
   metadata     = {}
   force_delete = true
 
